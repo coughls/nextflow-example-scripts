@@ -1,4 +1,5 @@
 
+
 # nextflow-example-scripts
 
 ## sending-channel-of-false-results-to-file-example.nf
@@ -35,3 +36,36 @@ Try the script below which should complete
 ```shell
 nextflow run spaces-in-filenames-passing-example.nf
 ```
+
+
+To deal with spaces in filenames, add quotes - for example instead of 
+
+
+```
+process foo {
+
+
+    script:
+    """
+    wc -l $txt_file > ${filename}.num_lines.txt 
+    """
+
+}
+```
+
+ 
+ to 
+ 
+ ```
+process foo { 
+
+
+    script:
+    """
+    wc -l "$txt_file" > "${filename}.num_lines.txt"
+    """
+    
+}
+```
+ 
+
