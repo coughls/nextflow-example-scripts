@@ -54,7 +54,7 @@ process foo {
 ```
 
  
- to 
+do
  
  ```
 process foo { 
